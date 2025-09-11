@@ -27,30 +27,22 @@ function playRound(playerChoice, computerChoice) { //plays a single round of the
     } else if (playerChoice === "rock") {
         if (computerChoice === "paper") {
             computerScore++; //updates scores
-            return "Computer wins!";
         } else {
             humanScore++;
-            return "Player wins!";
         }
     } else if (playerChoice === "paper") {
         if (computerChoice === "scissors") {
             computerScore++;
-            return "Computer wins!";
         } else {
             humanScore++;
-            return "Player wins!";
         }
     } else if (playerChoice === "scissors") {
         if (computerChoice === "rock") {
             computerScore
-            return "Computer wins!";
         } else {
             humanScore++;
-            return "Player wins!";
         }
-    } else {
-        return "Invalid choice!";
-    }
+    } 
 }
 
 function playGame() { //plays 5 rounds of the game
