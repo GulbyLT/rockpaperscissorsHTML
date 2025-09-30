@@ -33,14 +33,25 @@ let computerScore = 0;
         playRound('scissors', computerChoice);
     });
 
-    //document.querySelectorAll('button').addEventListener('click', showScore());
-
     function showScore() {
+        
         const pScore = document.getElementById('humanScore');
         const cScore = document.getElementById('computerScore');
 
+
+        if (humanScore === 5) {
+            resultDiv.textContent = "Result: You reached 5 points! You win the game!";
+            humanScore = 0;
+            computerScore = 0;
+        } else if (computerScore === 5) {
+            resultDiv.textContent = "Result: Computer reached 5 points! Computer wins the game!";
+            humanScore = 0;
+            computerScore = 0;
+        }
+        
         pScore.textContent = "Your Score: " + humanScore;
         cScore.textContent = "Computer Score: " + computerScore;
+      
     }
 
 function getComputerChoice() { //gets computer choice by generating random number between 0-2
@@ -56,11 +67,6 @@ function getComputerChoice() { //gets computer choice by generating random numbe
             return "scissors";
     }
 }
-
-/*function getPlayerChoice() { //gets player choice
-    let choice = prompt("Enter rock, paper, or scissors: ").toLowerCase();
-    return choice;
-}*/
 
 function playRound(playerChoice, computerChoice) { //plays a single round of the game 
     document.querySelector('p[pChoice]').textContent = "Player Choice: " + playerChoice;
@@ -97,23 +103,3 @@ function playRound(playerChoice, computerChoice) { //plays a single round of the
     } 
 }
 
-
-/*function playGame() { //plays 5 rounds of the game
-    for (let i = 0; i <= 5; i++) { //itterates through 5 rounds
-        let playerChoice = getPlayerChoice();
-        let computerChoice = getComputerChoice();
-        playRound(playerChoice, computerChoice);
-        console.log("Round " + i + " : Player: " + playerChoice + " Computer: " + computerChoice);
-        console.log("Score: Player " + humanScore + " Computer: " + computerScore);
-    }
-
-        if (humanScore > computerScore) { //after loop breaks, determines winner
-            console.log("Player wins the game!");
-        } else {
-            console.log("Computer wins the game!");
-        }
-}
-
-
-
-console.log(playGame()); //starts the game*/
