@@ -4,6 +4,15 @@ let computerScore = 0;
     const rock = document.getElementById('rock');
     const paper = document.getElementById('paper');
     const scissors = document.getElementById('scissors');
+    const resultDiv = document.getElementById('resulttext');
+
+    function computerWins() {
+        resultDiv.textContent = "Result: Computer wins!"
+    }
+
+    function humanWins() {
+        resultDiv.textContent = "Result: You win!"
+    }
 
     rock.addEventListener('click', () => {
         const computerChoice = getComputerChoice();
@@ -41,24 +50,31 @@ function getComputerChoice() { //gets computer choice by generating random numbe
 
 function playRound(playerChoice, computerChoice) { //plays a single round of the game 
     if (playerChoice === computerChoice) {
+        resultDiv.textContent = "Result: It's a tie!";
         return "It's a tie!";
     } else if (playerChoice === "rock") {
         if (computerChoice === "paper") {
             computerScore++; //updates scores
+            computerWins();
         } else {
             humanScore++;
+            humanWins();
         }
     } else if (playerChoice === "paper") {
         if (computerChoice === "scissors") {
             computerScore++;
+            computerWins();
         } else {
             humanScore++;
+            humanWins();
         }
     } else if (playerChoice === "scissors") {
         if (computerChoice === "rock") {
-            computerScore
+            computerScore++;
+            computerWins();
         } else {
             humanScore++;
+            humanWins();
         }
     } 
 }
