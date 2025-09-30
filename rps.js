@@ -1,6 +1,24 @@
 let humanScore = 0;
 let computerScore = 0;
 
+    const rock = document.getElementById('rock');
+    const paper = document.getElementById('paper');
+    const scissors = document.getElementById('scissors');
+
+    rock.addEventListener('click', () => {
+        const computerChoice = getComputerChoice();
+        playRound('rock', computerChoice);
+    });
+
+    paper.addEventListener('click', () => {
+        const computerChoice = getComputerChoice();
+        playRound('paper', computerChoice);
+    });
+
+    scissors.addEventListener('click', () => {
+        const computerChoice = getComputerChoice();
+        playRound('scissors', computerChoice);
+    });
 
 function getComputerChoice() { //gets computer choice by generating random number between 0-2
     let choice = Math.floor(Math.random() * 3);
@@ -16,10 +34,10 @@ function getComputerChoice() { //gets computer choice by generating random numbe
     }
 }
 
-function getPlayerChoice() { //gets player choice
+/*function getPlayerChoice() { //gets player choice
     let choice = prompt("Enter rock, paper, or scissors: ").toLowerCase();
     return choice;
-}
+}*/
 
 function playRound(playerChoice, computerChoice) { //plays a single round of the game 
     if (playerChoice === computerChoice) {
@@ -45,7 +63,7 @@ function playRound(playerChoice, computerChoice) { //plays a single round of the
     } 
 }
 
-function playGame() { //plays 5 rounds of the game
+/*function playGame() { //plays 5 rounds of the game
     for (let i = 0; i <= 5; i++) { //itterates through 5 rounds
         let playerChoice = getPlayerChoice();
         let computerChoice = getComputerChoice();
@@ -61,4 +79,6 @@ function playGame() { //plays 5 rounds of the game
         }
 }
 
-console.log(playGame()); //starts the game
+
+
+console.log(playGame()); //starts the game*/
