@@ -6,12 +6,16 @@ let computerScore = 0;
     const scissors = document.getElementById('scissors');
     const resultDiv = document.getElementById('resulttext');
 
+    
+    
     function computerWins() {
         resultDiv.textContent = "Result: Computer wins!"
+        showScore();
     }
 
     function humanWins() {
         resultDiv.textContent = "Result: You win!"
+        showScore();
     }
 
     rock.addEventListener('click', () => {
@@ -28,6 +32,16 @@ let computerScore = 0;
         const computerChoice = getComputerChoice();
         playRound('scissors', computerChoice);
     });
+
+    //document.querySelectorAll('button').addEventListener('click', showScore());
+
+    function showScore() {
+        const pScore = document.getElementById('humanScore');
+        const cScore = document.getElementById('computerScore');
+
+        pScore.textContent = "Your Score: " + humanScore;
+        cScore.textContent = "Computer Score: " + computerScore;
+    }
 
 function getComputerChoice() { //gets computer choice by generating random number between 0-2
     let choice = Math.floor(Math.random() * 3);
@@ -49,8 +63,12 @@ function getComputerChoice() { //gets computer choice by generating random numbe
 }*/
 
 function playRound(playerChoice, computerChoice) { //plays a single round of the game 
+    document.querySelector('p[pChoice]').textContent = "Player Choice: " + playerChoice;
+    document.querySelector('p[cChoice]').textContent = "Computer Choice: " + computerChoice;
+
     if (playerChoice === computerChoice) {
         resultDiv.textContent = "Result: It's a tie!";
+        showScore();
         return "It's a tie!";
     } else if (playerChoice === "rock") {
         if (computerChoice === "paper") {
@@ -78,6 +96,7 @@ function playRound(playerChoice, computerChoice) { //plays a single round of the
         }
     } 
 }
+
 
 /*function playGame() { //plays 5 rounds of the game
     for (let i = 0; i <= 5; i++) { //itterates through 5 rounds
